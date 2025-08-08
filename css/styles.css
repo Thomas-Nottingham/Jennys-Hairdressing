@@ -1,0 +1,546 @@
+/* General Setup & Custom Properties (Variables) */
+:root {
+  --primary-dark: #1A211F; /* Deep, dark green from the facade */
+  --accent-cream: #F0EAD6; /* Warm off-white from the text/chairs */
+  --accent-gold: #C9A87C;  /* Muted gold for highlights */
+  --font-heading: 'Raleway', sans-serif;
+  --font-body: 'Lato', sans-serif;
+}
+
+html {
+  scroll-padding-top: 100px; /* adjust based on your fixed header height */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #fff;min-height: 90vh;
+  color: var(--primary-dark);
+}
+
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  padding: 5px 40px; 
+  /* Remove the line below, or set it to 'flex-start' */
+  justify-content: flex-start;
+}
+
+.top-bar nav {
+  /* This automatically pushes the nav into the empty space */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top-bar .logo {
+  height: 150px;
+}
+
+.top-bar nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px; /* A bit more spacing */
+}
+
+.top-bar nav ul li a {
+  text-decoration: none;
+  color: var(--primary-dark);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.top-bar nav ul li a:hover {
+  color: var(--accent-gold);
+}
+
+.cta-button {
+  background: var(--primary-dark);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #333;
+}
+
+/* --- REVISED HERO SECTION STYLES --- */
+
+/* Hero section container */
+.hero {
+  position: relative;
+  
+  /* 1. Set the image as a background */
+  background-image: url('../assets/images/VooDoo-Background-Image.jpg');
+  background-size: cover; /* Ensures the image fills the container */
+
+  /* 2. THIS IS THE FIX: Position the background image higher up.
+     'center' aligns it horizontally. '20%' pulls it up vertically.
+     (0% is the top, 50% is the middle, 100% is the bottom).
+     Try changing 20% to 15% or 25% to get the exact view you want! */
+  background-position: center 20%;
+
+  /* 3. Make the section a bit smaller than the full screen */
+  height: 70vh; 
+
+  /* Use flexbox to center the overlay content */
+  /* This is the key change for positioning the buttons */
+  display: flex;
+  align-items: flex-end;      /* Aligns items to the bottom */
+  justify-content: flex-start;  /* Aligns items to the left */
+}
+.hero .buttons {
+  /* Removed margin-top and added padding to create space from the corner */
+  padding-left: 100px; 
+  padding-bottom: 60px;
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+
+/* Your button styles remain the same */
+.btn {
+  text-decoration: none;
+  padding: 25px 40px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn.white {
+  background: var(--accent-cream);
+  color: var(--primary-dark);
+}
+
+.btn.white:hover {
+  background: var(--accent-gold);
+  color: var(--accent-cream);
+}
+
+.btn.peach {
+  background: var(--accent-gold);
+  color: var(--accent-cream);
+}
+
+.btn.peach:hover {
+  background: var(--accent-cream);
+  color: var(--primary-dark);
+}
+
+
+.HomepageHeader{
+  font-family: var(--font-heading);
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: var(--primary-dark);
+}
+/* Add this to the end of styles.css */
+.content-section {
+  padding: 80px 200px;
+  text-align: left;
+  max-width: 1500px;
+}
+
+.content-section p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* --- Services Section (Light Theme) --- */
+
+.Services {
+  /* Changed background to white */
+  background-color: #fff;
+  /* Changed default text color to your dark brand color */
+  color: var(--primary-dark);
+  padding: 80px 10%;
+  text-align: left;
+}
+
+/* Services Section Header ("Services") */
+.Services .HomepageHeader {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  /* Changed header color to dark */
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+
+  /* The gold underline still looks great on a light background */
+  display: inline-block;
+  border-bottom: 2px solid var(--accent-gold);
+}
+
+/* The list container (UL) */
+.Services ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+  text-align: left;
+  columns: 2;
+  column-gap: 50px;
+}
+
+/* Individual list items (LI) */
+.Services li {
+  font-size: 17px;
+  padding-bottom: 20px;
+  line-height: 1.5;
+  /* The color is inherited from the .Services parent, so it's now dark */
+}
+
+/* Custom "bullet point" for each list item */
+.Services li::before {
+  content: '›';
+  /* The gold accent color remains the same */
+  color: var(--accent-gold);
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 15px;
+  vertical-align: middle;
+}
+
+/* --- Responsive Design for Mobile (no changes needed here) --- */
+@media (max-width: 768px) {
+  .Services ul {
+    columns: 1;
+  }
+
+  .Services {
+    padding: 60px 8%;
+  }
+}
+
+/* --- Philosophy Section --- */
+
+.philosophy-section {
+  display: flex; /* Creates the side-by-side column layout */
+  align-items: center; /* Vertically centers the content in both columns */
+  background-color: var(--primary-dark);
+  color: var(--accent-cream);
+}
+
+/* The two main columns (image and text) */
+.philosophy-image,
+.philosophy-text {
+  flex: 0.5; /* Makes each column take up 50% of the width */}
+
+/* Style for the image in the left column */
+.philosophy-image img {
+  width: 70%;
+  display: block; /* Removes any extra space below the image */
+  padding-left: 150px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* Styling for the text in the right column */
+.philosophy-text h2 {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-gold);
+  margin-bottom: 10px;
+}
+
+.philosophy-text .HomepageHeader {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+}
+
+.philosophy-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 500px; /* Keeps the paragraph readable */
+}
+
+/* --- Responsive Design for Mobile --- */
+/* On screens smaller than 900px, stack the columns */
+@media (max-width: 900px) {
+  .philosophy-section {
+    flex-direction: column; /* Stacks the columns vertically */
+  }
+
+  .philosophy-text {
+    /* Add more padding on top when stacked */
+    padding-top: 80px; 
+    text-align: center;
+  }
+
+  .philosophy-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* --- Reviews / Testimonial Section --- */
+
+.Reviews {
+  background-color: var(--primary-dark);
+  color: var(--accent-cream);
+  padding: 80px 20px; /* Add some minimal horizontal padding */
+  text-align: center;
+}
+
+.Reviews .HomepageHeader {
+  color: #fff;
+  border-bottom: 2px solid var(--accent-gold);
+  display: inline-block;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+}
+
+/* The slider container is now the positioning context */
+.testimonial-slider {
+  max-width: 800px;
+  margin: 0 auto;
+  /* THIS IS A KEY CHANGE: It becomes the anchor for the buttons */
+  position: relative; 
+}
+
+/* A new wrapper to hide the overflow */
+.slider-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* The track holds all slides in a row */
+.testimonial-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Individual slides */
+.testimonial-slide {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.review-text {
+  font-size: 18px;
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+
+/* --- Navigation Buttons --- */
+
+.slider-btn {
+  position: absolute;
+  top: 40%; /* Adjusted top position slightly */
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+}
+
+/* Use negative values to push the buttons outside the slider box */
+.prev-btn {
+  left: -80px; 
+}
+
+.next-btn {
+  right: -80px;
+}
+
+/* --- Responsive Design for Mobile --- */
+/* Hide the desktop arrows on small screens */
+@media (max-width: 1024px) {
+  .slider-btn {
+    display: none;
+  }
+  .testimonial-slide {
+    padding: 0 20px;
+  }
+}
+
+/* --- Location Section --- */
+.Location {
+  /* Using a light background to contrast with the dark sections */
+  background-color: #fff; 
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.Location .HomepageHeader {
+  color: var(--primary-dark);
+  border-bottom: 2px solid var(--accent-gold);
+  display: inline-block;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+}
+
+/* A container for the map and address */
+.location-content {
+  max-width: 800px;
+  margin: 0 auto; /* Centers the content block */
+}
+
+/* The map image link */
+.map-link {
+  display: block;
+  margin-bottom: 25px;
+  border: 4px solid #fff;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-link:hover {
+  transform: scale(1.02); /* A subtle zoom effect on hover */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.map-link img {
+  width: 100%;
+  display: block; /* Removes any extra space below the image */
+}
+
+/* The address text */
+.address {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* --- Footer Styles --- */
+footer {
+  background-color: #fff;
+  color: var(--primary-dark);
+  padding: 60px 20px 0; /* Add padding at the top, but not bottom yet */
+  font-size: 15px;
+}
+
+/* Main content area with the columns */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap; /* Allows columns to stack on smaller screens */
+  justify-content: space-between;
+  gap: 40px; /* Space between columns */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1; /* Allows columns to grow */
+  min-width: 220px; /* Minimum width before stacking */
+}
+
+.footer-column.about {
+  margin-top: -40px; /* Adjust this value up or down as needed */
+}
+
+/* Styling for the headings in the footer */
+.footer-column h4 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  display: inline-block;
+}
+
+/* Styling for lists (Quick Links, Opening Hours) */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 12px;
+}
+
+/* Make links in the footer look clean */
+.footer-column a {
+  color: var(--primary-dark);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: var(--accent-gold);
+}
+
+/* Specific styles for the 'About' column */
+.footer-logo {
+  max-height: 150px;
+}
+.about p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.footer-cta {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* Social media icons styling */
+.social-icons a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: white;
+  margin-right: 5px;
+  font-weight: bold;
+  text-transform: lowercase;
+}
+.social-icon.facebook { background-color: #3b5998; }
+.social-icon.instagram { background-color: #e4405f; }
+
+/* Styling for the opening hours list */
+.hours li {
+  display: flex;
+  justify-content: space-between;
+}
+.hours li span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* The final copyright bar at the bottom */
+.footer-bottom {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+  color: #777;
+}
